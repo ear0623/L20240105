@@ -22,4 +22,8 @@ public:
 	virtual void PostLogin(APlayerController* NewPlayer)override;//로그인 했으니까 컨트롤러 셋팅해줄꺼야 .  아직까지 begin play는 안됨.
 
 	virtual void StartPlay()override;//gamestate가 관리 복제되니까.
+
+	void callParentStartPlay();
+	//게임모드는 게임스테이트에 자료를 저장하고 게임모드를 통해 동기화해주는 역활
+	
 };

@@ -45,6 +45,22 @@ void AMY_GM::PostLogin(APlayerController* NewPlayer)
 
 void AMY_GM::StartPlay()
 {
+	
+
+	MakeMessage(this, __FUNCTION__, __LINE__, "StartPaly start 10");
+
+	//Super::StartPlay();
+
+	FTimerManager& timerManager = GetWorld()->GetTimerManager();
+	FTimerHandle Timer;
+	timerManager.SetTimer(Timer, this, &AMY_GM::callParentStartPlay, 5.0f, false);
+
+	//timerManager.ClearTimer(Timer);
+	//MakeMessage(this, __FUNCTION__, __LINE__, "AfterStartLogin");
+}
+
+void AMY_GM::callParentStartPlay()
+{
 	MakeMessage(this, __FUNCTION__, __LINE__, "StartLogin");
 
 	Super::StartPlay();
